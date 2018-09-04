@@ -1,0 +1,34 @@
+name: SimpleSilk
+author: Goonhaven
+version: 1.0
+api-version: 1.13
+main: me.goonhaven.SimpleSilk.SimpleSilk
+description: Bare bones silk-touch spawner mining plugin.
+commands:
+  simplesilk:
+    description: Gives the user a spawner of SpawnerType (not the default pig spawner).
+    usage: /<SimpleSilk> <SpawnerType> [Quantity]
+    aliases:
+    - ss
+    permission: ss.cmd
+permissions:
+  ss.spawner.silkbreak:
+    description: Allows breaking custom (bought / given) spawners, which were placed, with a silk touch tool.
+    default: op
+  ss.spawner.silkbreak.natural:
+    description: Allows retrieval of natural spawners with a silk touch tool.
+    default: op
+  ss.spawner.place:
+    description: Allows placing of spawners.
+    default: op
+  ss.cmd:
+    description: Gives access to the /ss command for obtaining spawners.
+    default: op
+  ss.*:
+    description: All permissions wildcard.
+    default: op
+    children:
+      ss.spawner.silkbreak: true
+      ss.spawner.silkbreak.natural: true
+      ss.spawner.place: true
+      ss.cmd: true
